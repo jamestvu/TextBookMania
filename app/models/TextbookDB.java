@@ -28,6 +28,14 @@ public class TextbookDB {
     return textbook;
   }
   
+  public static boolean isbnExists(String ISBN) {
+    return textbooks.containsKey(ISBN);
+  }
+
+  public static boolean titleExists(String title) {
+    return textbooks.containsKey(title);
+  }
+  
   /**
    * Deletes a textbook by ISBN.
    * @param ISBN The book's ISBN.

@@ -1,0 +1,39 @@
+@(textForm: Form[views.formdata.TextbookFormData])
+
+@import helper._
+@import bootstrap3._
+
+@Main("Textbook Management") {
+
+<div class="container" style="margin-top:20px">
+  @form(routes.Application.postTextbook(), 'class -> "form-horizontal") {
+
+  @text(textForm("title"),
+        label = "Title",
+        placeholder = "Textbook's title",
+        help = "The title of the textbook.")
+        
+  @text(textForm("author"),
+        label = "Author",
+        placeholder = "Author's name",
+        help = "The author of the textbook.")
+
+  @text(textForm("ISBN"),
+        label = "ISBN",
+        placeholder = "Textbook's ISBN",
+        help = "The ISBN of the textbook.")        
+
+  @text(textForm("condition"),
+        label = "Condition",
+        placeholder = "Should be a select menu here",
+        help = "The condition of the textbook.")
+                           
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </div>
+  }
+</div>
+        
+}

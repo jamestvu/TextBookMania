@@ -1,5 +1,6 @@
 package controllers;
 
+import models.StudentDB;
 import models.Textbook;
 import models.TextbookDB;
 import play.data.Form;
@@ -9,6 +10,8 @@ import views.formdata.StudentFormData;
 import views.formdata.TextbookFormData;
 import views.html.Index;
 import views.html.Page1;
+import views.html.ManageTextbook;
+import views.html.ManageStudent;
 
 /**
  * Implements the controllers for this application.
@@ -39,7 +42,7 @@ public class Application extends Controller {
   public static Result newStudent() {
     StudentFormData data = new StudentFormData();
     Form<StudentFormData> formData = Form.form(StudentFormData.class).fill(data);
-    return ok(Page1.render("Welcome to Page1."));
+    return ok(ManageStudent.render(formData));
 
   }
   
@@ -50,7 +53,7 @@ public class Application extends Controller {
   public static Result newTextbook() {
     TextbookFormData data = new TextbookFormData();
     Form<TextbookFormData> formData = Form.form(TextbookFormData.class).fill(data);
-    return ok(Page1.render("returns add new text page, temp"));
+    return ok(ManageTextbook.render(formData));
   }
   
   public static Result getTextbook(String ISBN) {
@@ -67,5 +70,29 @@ public class Application extends Controller {
     TextbookFormData data = new TextbookFormData(TextbookDB.getTextbook(ISBN));
     Form<TextbookFormData> formData = Form.form(TextbookFormData.class).fill(data);
     return ok(Page1.render("returns edit textbook page, temp"));
+  }
+  
+  public static Result postStudent() {
+    Form<StudentFormData> formData = Form.form(StudentFormData.class).bindFromRequest();
+    if (formData.hasErrors()) {
+      return badRequest(Page1.render("returns page with errors, temp"));
+    }
+    else {
+      StudentFormData data = formData.get();
+      StudentDB.addStudent(data);
+      return ok(Page1.render("returns textbook page, temp"));
+    }
+  }  
+  
+  public static Result postTextbook() {
+    Form<TextbookFormData> formData = Form.form(TextbookFormData.class).bindFromRequest();
+    if (formData.hasErrors()) {
+      return badRequest(Page1.render("returns page with errors, temp"));
+    }
+    else {
+      TextbookFormData data = formData.get();
+      TextbookDB.addTextbook(data);
+      return ok(Page1.render("returns textbook page, temp"));
+    }
   }
 }
