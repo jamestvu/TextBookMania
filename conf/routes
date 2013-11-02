@@ -5,7 +5,10 @@
 # Home page
 GET     /                           controllers.Application.index()
 GET     /new                        controllers.Application.newStudent()
-
+GET     /newtext                    controllers.Application.newTextbook()
+GET     /text/:isbn                 controllers.Application.getTextbook(isbn)
+GET     /text/:isbn/delete          controllers.Application.deleteTextbook(isbn)
+GET     /text/:isbn/edit            controllers.Application.manageTextbook(isbn)
  
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
