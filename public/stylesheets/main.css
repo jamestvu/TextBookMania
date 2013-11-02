@@ -1,3 +1,39 @@
 body {
-  padding-top: 70px;  /* Move body of page below navbar. */
+  
+}
+
+#bar {
+  display: inline-block;
+}
+
+#bar2 {
+  display: inline-block;
+  float: right;
+}
+
+.surferBioPic {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 400px;
+  width: auto;
+}
+
+.carousel-1 {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 400px;
+}
+
+.section-1 {
+  background: url("../images/headerbg.jpg");
+  background-size: 100% 100%;
+  background-position: center;
+  height: 200px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+li {
+  display: inline;
 }
