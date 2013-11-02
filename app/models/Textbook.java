@@ -5,6 +5,7 @@ public class Textbook {
   private String title;
   private String author;
   private String ISBN;
+  private String imageURL;
   private String condition;
   
   /**
@@ -20,10 +21,11 @@ public class Textbook {
    * @param author
    * @param ISBN
    */
-  public Textbook(String title, String author, String ISBN, String condition) {
+  public Textbook(String title, String author, String ISBN, String imageURL, String condition) {
     this.title = title;
     this.author = author;
     this.ISBN = ISBN;
+    this.imageURL = imageURL;
     this.condition = condition;
   }
 
@@ -67,6 +69,20 @@ public class Textbook {
    */
   public void setISBN(String iSBN) {
     ISBN = iSBN;
+  }
+  
+  /**
+   * @return the imageURL
+   */
+  public String getImageURL() {
+    return imageURL;
+  }
+
+  /**
+   * @param imageURL the imageURL to set
+   */
+  public void setImageURL(String imageURL) {
+    this.imageURL = imageURL;
   }
 
   /**

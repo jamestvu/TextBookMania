@@ -15,7 +15,7 @@ public class TextbookDB {
    */
   public static Textbook addTextbook(TextbookFormData formData) {
     String title = formData.title;
-    Textbook textbook = new Textbook(formData.title, formData.author, formData.ISBN, formData.condition);
+    Textbook textbook = new Textbook(formData.title, formData.author, formData.ISBN, formData.imageURL, formData.condition);
     textbooks.put(title, textbook);
     return textbook;
   }
@@ -34,6 +34,10 @@ public class TextbookDB {
 
   public static boolean titleExists(String title) {
     return textbooks.containsKey(title);
+  }
+  
+  public static boolean imageExists(String image) {
+    return textbooks.containsKey(image);
   }
   
   /**
