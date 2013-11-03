@@ -20,9 +20,12 @@ public class Global extends GlobalSettings {
    */
   public void onStart(Application app) {
     
-    StudentDB.addStudent(new StudentFormData("Jonathan", "Ortal", "jortal@hawaii.edu", "http://example.png"));
-    StudentDB.addStudent(new StudentFormData("Marc", "Sanpei", "sanpeihawaii2@gmail.com", "http://example.png"));
-    StudentDB.addStudent(new StudentFormData("James", "Vu", "jamesvu42@gmail.com", "http://example.png"));
+    StudentDB.addStudent(new StudentFormData("Jonathan", "Ortal", "jortal@hawaii.edu",
+        "http://jortal.files.wordpress.com/2013/08/profilepic.jpg?w=133&h=105"));
+    StudentDB.addStudent(new StudentFormData("Marc", "Sanpei", "sanpeihawaii2@gmail.com", 
+        "http://sanpeimarc.files.wordpress.com/2013/08/215078_10150723796135713_735286_n.jpg?w=960"));
+    StudentDB.addStudent(new StudentFormData("James", "Vu", "jamesvu42@gmail.com",
+        "http://jamestvu.files.wordpress.com/2013/08/dsc01094.jpg?w=150"));
     
     TextbookDB.addTextbook(new TextbookFormData("Java Concepts: Compatible with Java 5, 6 and 7",
         "Cay S. Horstmann", "9780470509470", "http://img.png", "Condition"));
@@ -48,7 +51,8 @@ public class Global extends GlobalSettings {
         "Guy Even, Moti Medina", "9781107027534", "http://img.png", "Condition"));
     TextbookDB.addTextbook(new TextbookFormData("Ethics for the Information Age (5th Edition)",
         "Mike Quinn", "9780132855532", "http://img.png", "Condition"));
-    TextbookDB.addTextbook(new TextbookFormData("Presenting to Win: The Art of Telling Your Story, Updated and Expanded Edition", 
+    TextbookDB.addTextbook(
+        new TextbookFormData("Presenting to Win: The Art of Telling Your Story, Updated and Expanded Edition", 
         "Jerry Weissman", "9780137144174", "http://img.png", "Condition"));
     TextbookDB.addTextbook(new TextbookFormData("Operating System Concepts (Hardcover)", 
         "Abraham Silberschatz, Peter B. Galvin, Greg Gagne", "9781118063330", "http://img.png", "Condition"));

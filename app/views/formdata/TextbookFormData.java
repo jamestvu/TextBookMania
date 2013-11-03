@@ -5,26 +5,40 @@ import java.util.List;
 import play.data.validation.ValidationError;
 import models.Textbook;
 
+/**
+ * Class that stored form data for textbook.
+ * @author Owner
+ *
+ */
 public class TextbookFormData {
 
-  /** book title */
+  /** book title. */
   public String title = "";
-  /** book author */
+  /** book author. */
   public String author = "";
-  /** book ISBN */
+  /** book ISBN. */
   public String ISBN = "";
-  /** book image url */
+  /** book image url. */
   public String imageURL = "";
-  /** book condition */
+  /** book condition. */
   public String condition = "";
   
   /**
-   * Default constructor
+   * Default constructor.
    */
   public TextbookFormData() {
     
   }
   
+  /**
+   * Constructor. 
+   * 
+   * @param title the book title.
+   * @param author the book author.
+   * @param ISBN the book isbn.
+   * @param imageURL the book image url.
+   * @param condition the book's condition.
+   */
   public TextbookFormData(String title, String author, String ISBN, String imageURL, String condition) {
     this.title = title;
     this.author = author;
@@ -33,6 +47,10 @@ public class TextbookFormData {
     this.condition = condition;
   }
   
+  /**
+   * Constructor form textbook.
+   * @param textbook the textbook.
+   */
   public TextbookFormData(Textbook textbook) {
     this.title = textbook.getTitle();
     this.author = textbook.getAuthor();
