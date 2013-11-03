@@ -27,7 +27,7 @@ public class Application extends Controller {
     return ok(Index.render("Welcome to the home page."));
   }
     
-  public static Result match() {
+  public static Result matchPage() {
     return ok(Match.render("match page"));
   }
   

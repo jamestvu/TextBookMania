@@ -4,6 +4,7 @@
  
 # Home page
 GET     /                           controllers.Application.index()
+GET     /match                      controllers.Application.matchPage()
 GET     /new                        controllers.Application.newStudent()
 GET     /newtext                    controllers.Application.newTextbook()
 GET     /students                   controllers.Application.listStudents()
@@ -13,7 +14,6 @@ GET     /textbooks                  controllers.Application.listTextbooks()
 GET     /text/:title                controllers.Application.getTextbook(title)
 GET     /text/:title/delete         controllers.Application.deleteTextbook(title)
 GET     /text/:title/edit           controllers.Application.manageTextbook(title)
-GET     /match                      controllers.Application.match()
 POST    /posttext                   controllers.Application.postTextbook()
 POST    /poststudent                controllers.Application.postStudent()
  
