@@ -13,6 +13,7 @@ GET     /textbooks                  controllers.Application.listTextbooks()
 GET     /text/:title                controllers.Application.getTextbook(title)
 GET     /text/:title/delete         controllers.Application.deleteTextbook(title)
 GET     /text/:title/edit           controllers.Application.manageTextbook(title)
+GET     /match                      controllers.Application.match()
 POST    /posttext                   controllers.Application.postTextbook()
 POST    /poststudent                controllers.Application.postStudent()
  

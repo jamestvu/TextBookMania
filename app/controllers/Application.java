@@ -12,6 +12,7 @@ import views.html.ListStudents;
 import views.html.ListTextbooks;
 import views.html.ManageStudent;
 import views.html.ManageTextbook;
+import views.html.Match;
 
 /**
  * Implements the controllers for this application.
@@ -26,6 +27,10 @@ public class Application extends Controller {
     return ok(Index.render("Welcome to the home page."));
   }
     
+  public static Result match() {
+    return ok(Match.render("match page"));
+  }
+  
   /**
    * Returns the manage student page.
    * @return The manage student page.
