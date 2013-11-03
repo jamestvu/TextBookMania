@@ -1,18 +1,20 @@
 package models;
 
+import java.util.Date;
+
 
 public class Offer {
 
   private Student student;
   private Textbook textbook ;
   private int price;
-  private String expiration;
+  private Date expiration;
   
   public Offer() {
     
   }
   
-  public Offer(Student student, Textbook textbook, int price, String expiration) {
+  public Offer(Student student, Textbook textbook, int price, Date expiration) {
     this.student = student;
     this.textbook = textbook;
     this.price = price;
@@ -64,14 +66,14 @@ public class Offer {
   /**
    * @return the expiration
    */
-  public String getExpiration() {
+  public Date getExpiration() {
     return expiration;
   }
 
   /**
    * @param expiration the expiration to set
    */
-  public void setExpiration(String expiration) {
+  public void setExpiration(Date expiration) {
     this.expiration = expiration;
   }
 }

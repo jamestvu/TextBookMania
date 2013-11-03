@@ -1,5 +1,6 @@
 package views.formdata;
 
+import java.util.Date;
 import models.Offer;
 import models.Student;
 import models.Textbook;
@@ -9,7 +10,7 @@ public class BuyOffer {
   public Student student = null;
   public Textbook textbook = null;
   public int price = 0;
-  public String expiration = "";
+  public Date expiration = null;
   
   /**
    * Default constructor
