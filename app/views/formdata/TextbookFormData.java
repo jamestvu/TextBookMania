@@ -16,15 +16,9 @@ public class TextbookFormData {
   public String title = "";
   /** book author. */
   public String author = "";
-<<<<<<< HEAD
-  /** book ISBN. */
-  public String ISBN = "";
-  /** book image url. */
-=======
   /** book ISBN */
   public String isbn = "";
-  /** book image url */
->>>>>>> 7f245e6c709bfe117b3dcf7a729209585da633fe
+  /** book image url. */
   public String imageURL = "";
   /** book condition. */
   public String condition = "";
@@ -36,7 +30,6 @@ public class TextbookFormData {
     
   }
   
-<<<<<<< HEAD
   /**
    * Constructor. 
    * 
@@ -46,10 +39,7 @@ public class TextbookFormData {
    * @param imageURL the book image url.
    * @param condition the book's condition.
    */
-  public TextbookFormData(String title, String author, String ISBN, String imageURL, String condition) {
-=======
   public TextbookFormData(String title, String author, String isbn, String imageURL, String condition) {
->>>>>>> 7f245e6c709bfe117b3dcf7a729209585da633fe
     this.title = title;
     this.author = author;
     this.isbn = isbn;

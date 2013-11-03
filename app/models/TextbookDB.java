@@ -21,12 +21,8 @@ public class TextbookDB {
    */
   public static Textbook addTextbook(TextbookFormData formData) {
     String title = formData.title;
-<<<<<<< HEAD
-    Textbook textbook = new Textbook(formData.title, formData.author, formData.ISBN, formData.imageURL, 
+    Textbook textbook = new Textbook(formData.title, formData.author, formData.isbn, formData.imageURL, 
         formData.condition);
-=======
-    Textbook textbook = new Textbook(formData.title, formData.author, formData.isbn, formData.imageURL, formData.condition);
->>>>>>> 7f245e6c709bfe117b3dcf7a729209585da633fe
     textbooks.put(title, textbook);
     return textbook;
   }
@@ -40,36 +36,26 @@ public class TextbookDB {
     return new ArrayList<>(textbooks.values());
   }
   
-<<<<<<< HEAD
   /**
    * Gets a textbook based on ISBN.
    * @param ISBN the isbn.
    * @return textbook the textbook to return.
    */
-  public static Textbook getTextbook(String ISBN) {
-    Textbook textbook = textbooks.get(ISBN);
-=======
   public static Textbook getTextbook(String title) {
     Textbook textbook = textbooks.get(title);
->>>>>>> 7f245e6c709bfe117b3dcf7a729209585da633fe
     if (textbook == null) {
       throw new RuntimeException("Invalid title: " + title);
     }
     return textbook;
   }
   
-<<<<<<< HEAD
   /**
-   * Checks exixtence of a textbook based on isbn.
+   * Checks existence of a textbook based on isbn.
    * @param ISBN the isbn.
    * @return true is textbook exists in the db.
    */
-  public static boolean isbnExists(String ISBN) {
-    return textbooks.containsKey(ISBN);
-=======
-  public static boolean isbnExists(String isbn) {
+    public static boolean isbnExists(String isbn) {
     return textbooks.containsKey(isbn);
->>>>>>> 7f245e6c709bfe117b3dcf7a729209585da633fe
   }
   
   /**

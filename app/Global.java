@@ -51,16 +51,9 @@ public class Global extends GlobalSettings {
     TextbookDB.addTextbook(new TextbookFormData("Digital Logic Design: A Rigorous Approach", 
         "Guy Even, Moti Medina", "1107027535", "http://images.amazon.com/images/P/1107027535", "Excellent"));
     TextbookDB.addTextbook(new TextbookFormData("Ethics for the Information Age (5th Edition)",
-<<<<<<< HEAD
-        "Mike Quinn", "9780132855532", "http://img.png", "Condition"));
-    TextbookDB.addTextbook(
-        new TextbookFormData("Presenting to Win: The Art of Telling Your Story, Updated and Expanded Edition", 
-        "Jerry Weissman", "9780137144174", "http://img.png", "Condition"));
-=======
-        "Mike Quinn", "0132855534", "http://images.amazon.com/images/P/0132855534", "Excellent"));
+        "Mike Quinn", "0132855534", "http://images.amazon.com/images/P/0132855534", "Condition"));
     TextbookDB.addTextbook(new TextbookFormData("Presenting to Win: The Art of Telling Your Story, Updated and Expanded Edition", 
         "Jerry Weissman", "0137144172", "http://images.amazon.com/images/P/0137144172", "Excellent"));
->>>>>>> 7f245e6c709bfe117b3dcf7a729209585da633fe
     TextbookDB.addTextbook(new TextbookFormData("Operating System Concepts (Hardcover)", 
         "Abraham Silberschatz, Peter B. Galvin, Greg Gagne", "1118063333", 
         "http://images.amazon.com/images/P/1118063333", "Excellent"));
@@ -73,6 +66,5 @@ public class Global extends GlobalSettings {
         "Donald A. Norman", "0465067107", "http://images.amazon.com/images/P/0465067107", "Excellent"));
     TextbookDB.addTextbook(new TextbookFormData("Artificial Intelligence for Games", 
         "Ian Millington, John Funge", "0123747317", "http://images.amazon.com/images/P/0123747317", "Excellent"));
-
   }  
 }
