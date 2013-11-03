@@ -7,7 +7,7 @@
 				<th>Title</th>
 				<th>Author</th>
 				<th>ISBN</th>
-				<th>Image URL</th>
+				<th>Image</th>
                 <th>Condition</th>
 			</tr>
 		</thead>
@@ -16,7 +16,8 @@
 			<td>@textbook.getTitle()</td>
 			<td>@textbook.getAuthor()</td>
 			<td>@textbook.getISBN()</td>
-			<td>@textbook.getImageURL()</td>
+			<td><a href='http://images.amazon.com/images/P/@textbook.getISBN()'>
+              <img src='http://images.amazon.com/images/P/@textbook.getISBN()' height="50" width="50"></a></td>
             <td>@textbook.getCondition()</td>
 			<td><a href="@routes.Application.manageTextbook(textbook.getTitle())">Edit</a></td>
             <td><a href="@routes.Application.deleteTextbook(textbook.getTitle())">Delete</a></td>

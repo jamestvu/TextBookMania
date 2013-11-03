@@ -4,7 +4,7 @@ public class Textbook {
   
   private String title;
   private String author;
-  private String ISBN;
+  private String isbn;
   private String imageURL;
   private String condition;
   
@@ -21,10 +21,10 @@ public class Textbook {
    * @param author
    * @param ISBN
    */
-  public Textbook(String title, String author, String ISBN, String imageURL, String condition) {
+  public Textbook(String title, String author, String isbn, String imageURL, String condition) {
     this.title = title;
     this.author = author;
-    this.ISBN = ISBN;
+    this.isbn = isbn;
     this.imageURL = imageURL;
     this.condition = condition;
   }
@@ -58,17 +58,17 @@ public class Textbook {
   }
 
   /**
-   * @return the iSBN
+   * @return the isbn
    */
   public String getISBN() {
-    return ISBN;
+    return isbn;
   }
 
   /**
    * @param iSBN the iSBN to set
    */
-  public void setISBN(String iSBN) {
-    ISBN = iSBN;
+  public void setISBN(String isbn) {
+    this.isbn = isbn;
   }
   
   /**

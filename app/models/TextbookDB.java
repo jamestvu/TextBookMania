@@ -17,7 +17,7 @@ public class TextbookDB {
    */
   public static Textbook addTextbook(TextbookFormData formData) {
     String title = formData.title;
-    Textbook textbook = new Textbook(formData.title, formData.author, formData.ISBN, formData.imageURL, formData.condition);
+    Textbook textbook = new Textbook(formData.title, formData.author, formData.isbn, formData.imageURL, formData.condition);
     textbooks.put(title, textbook);
     return textbook;
   }
@@ -26,16 +26,16 @@ public class TextbookDB {
     return new ArrayList<>(textbooks.values());
   }
   
-  public static Textbook getTextbook(String ISBN) {
-    Textbook textbook = textbooks.get(ISBN);
+  public static Textbook getTextbook(String title) {
+    Textbook textbook = textbooks.get(title);
     if (textbook == null) {
-      throw new RuntimeException("Invalid ISBN: " + ISBN);
+      throw new RuntimeException("Invalid title: " + title);
     }
     return textbook;
   }
   
-  public static boolean isbnExists(String ISBN) {
-    return textbooks.containsKey(ISBN);
+  public static boolean isbnExists(String isbn) {
+    return textbooks.containsKey(isbn);
   }
 
   public static boolean titleExists(String title) {

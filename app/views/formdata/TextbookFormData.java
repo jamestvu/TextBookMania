@@ -12,7 +12,7 @@ public class TextbookFormData {
   /** book author */
   public String author = "";
   /** book ISBN */
-  public String ISBN = "";
+  public String isbn = "";
   /** book image url */
   public String imageURL = "";
   /** book condition */
@@ -25,10 +25,10 @@ public class TextbookFormData {
     
   }
   
-  public TextbookFormData(String title, String author, String ISBN, String imageURL, String condition) {
+  public TextbookFormData(String title, String author, String isbn, String imageURL, String condition) {
     this.title = title;
     this.author = author;
-    this.ISBN = ISBN;
+    this.isbn = isbn;
     this.imageURL = imageURL;
     this.condition = condition;
   }
@@ -36,7 +36,7 @@ public class TextbookFormData {
   public TextbookFormData(Textbook textbook) {
     this.title = textbook.getTitle();
     this.author = textbook.getAuthor();
-    this.ISBN = textbook.getISBN();
+    this.isbn = textbook.getISBN();
     this.imageURL = textbook.getImageURL();
     this.condition = textbook.getCondition();
   }
@@ -56,9 +56,9 @@ public class TextbookFormData {
       errors.add(new ValidationError("author", "Author is required."));
     }
 
-    if (ISBN.isEmpty()) {
-      errors.add(new ValidationError("iISBN", "ISBN is required."));
-    }
+    if (isbn.isEmpty()) {
+      errors.add(new ValidationError("isbn", "ISBN is required."));
+    } 
     
 
     if (condition.isEmpty()) {
