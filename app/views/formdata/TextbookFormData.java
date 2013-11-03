@@ -16,9 +16,15 @@ public class TextbookFormData {
   public String title = "";
   /** book author. */
   public String author = "";
+<<<<<<< HEAD
   /** book ISBN. */
   public String ISBN = "";
   /** book image url. */
+=======
+  /** book ISBN */
+  public String isbn = "";
+  /** book image url */
+>>>>>>> 7f245e6c709bfe117b3dcf7a729209585da633fe
   public String imageURL = "";
   /** book condition. */
   public String condition = "";
@@ -30,6 +36,7 @@ public class TextbookFormData {
     
   }
   
+<<<<<<< HEAD
   /**
    * Constructor. 
    * 
@@ -40,9 +47,12 @@ public class TextbookFormData {
    * @param condition the book's condition.
    */
   public TextbookFormData(String title, String author, String ISBN, String imageURL, String condition) {
+=======
+  public TextbookFormData(String title, String author, String isbn, String imageURL, String condition) {
+>>>>>>> 7f245e6c709bfe117b3dcf7a729209585da633fe
     this.title = title;
     this.author = author;
-    this.ISBN = ISBN;
+    this.isbn = isbn;
     this.imageURL = imageURL;
     this.condition = condition;
   }
@@ -54,7 +64,7 @@ public class TextbookFormData {
   public TextbookFormData(Textbook textbook) {
     this.title = textbook.getTitle();
     this.author = textbook.getAuthor();
-    this.ISBN = textbook.getISBN();
+    this.isbn = textbook.getISBN();
     this.imageURL = textbook.getImageURL();
     this.condition = textbook.getCondition();
   }
@@ -74,9 +84,9 @@ public class TextbookFormData {
       errors.add(new ValidationError("author", "Author is required."));
     }
 
-    if (ISBN.isEmpty()) {
-      errors.add(new ValidationError("iISBN", "ISBN is required."));
-    }
+    if (isbn.isEmpty()) {
+      errors.add(new ValidationError("isbn", "ISBN is required."));
+    } 
     
 
     if (condition.isEmpty()) {

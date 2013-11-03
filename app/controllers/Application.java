@@ -69,33 +69,39 @@ public class Application extends Controller {
     return ok(ListTextbooks.render(TextbookDB.getTextbooks()));
   }
   
+  public static Result manageStudent(String email) {
+    StudentFormData data = new StudentFormData(StudentDB.getStudent(email));
+    Form<StudentFormData> formData = Form.form(StudentFormData.class).fill(data);
+    return ok(ManageStudent.render(formData));
+  }
+  
   public static Result manageTextbook(String title) {
     TextbookFormData data = new TextbookFormData(TextbookDB.getTextbook(title));
     Form<TextbookFormData> formData = Form.form(TextbookFormData.class).fill(data);
-    return ok(Index.render("returns edit textbook page, temp"));
+    return ok(ManageTextbook.render(formData));
   }
   
   public static Result postStudent() {
     Form<StudentFormData> formData = Form.form(StudentFormData.class).bindFromRequest();
     if (formData.hasErrors()) {
-      return badRequest(Index.render("returns page with errors, temp"));
+      return badRequest(ManageStudent.render(formData));
     }
     else {
       StudentFormData data = formData.get();
       StudentDB.addStudent(data);
-      return ok(Index.render("returns textbook page, temp"));
+      return ok(ListStudents.render(StudentDB.getStudents()));
     }
   }  
   
   public static Result postTextbook() {
     Form<TextbookFormData> formData = Form.form(TextbookFormData.class).bindFromRequest();
     if (formData.hasErrors()) {
-      return badRequest(Index.render("returns page with errors, temp"));
+      return badRequest(ManageTextbook.render(formData));
     }
     else {
       TextbookFormData data = formData.get();
       TextbookDB.addTextbook(data);
-      return ok(Index.render("returns textbook page, temp"));
+      return ok(ListTextbooks.render(TextbookDB.getTextbooks()));
     }
   }
 }
