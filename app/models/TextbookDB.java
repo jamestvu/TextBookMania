@@ -1,6 +1,8 @@
 package models;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import views.formdata.TextbookFormData;
 
@@ -18,6 +20,10 @@ public class TextbookDB {
     Textbook textbook = new Textbook(formData.title, formData.author, formData.ISBN, formData.imageURL, formData.condition);
     textbooks.put(title, textbook);
     return textbook;
+  }
+  
+  public static List<Textbook> getTextbooks() {
+    return new ArrayList<>(textbooks.values());
   }
   
   public static Textbook getTextbook(String ISBN) {
@@ -44,8 +50,8 @@ public class TextbookDB {
    * Deletes a textbook by ISBN.
    * @param ISBN The book's ISBN.
    */
-  public static void deleteTextbook(String ISBN) {
-    textbooks.remove(ISBN);
+  public static void deleteTextbook(String title) {
+    textbooks.remove(title);
   }
 
 }

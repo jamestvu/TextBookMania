@@ -9,9 +9,10 @@ import play.mvc.Result;
 import views.formdata.StudentFormData;
 import views.formdata.TextbookFormData;
 import views.html.Index;
-import views.html.Page1;
 import views.html.ManageTextbook;
 import views.html.ManageStudent;
+import views.html.ListTextbooks;
+import views.html.ListStudents;
 
 /**
  * Implements the controllers for this application.
@@ -25,16 +26,7 @@ public class Application extends Controller {
   public static Result index() {
     return ok(Index.render("Welcome to the home page."));
   }
-  
-  /**
-   * Returns page1, a simple example of a second page to illustrate navigation.
-   * @return The Page1.
-   */
-  public static Result page1() {
-    return ok(Page1.render("Welcome to Page1."));
     
-  }
-  
   /**
    * Returns the manage student page.
    * @return The manage student page.
@@ -43,7 +35,19 @@ public class Application extends Controller {
     StudentFormData data = new StudentFormData();
     Form<StudentFormData> formData = Form.form(StudentFormData.class).fill(data);
     return ok(ManageStudent.render(formData));
+  }
+  
+  public static Result listStudents() {
+    return ok(ListStudents.render(StudentDB.getStudents()));
+  }
+  
+  public static Result deleteStudent(String email) {
+    StudentDB.deleteStudent(email);
+    return ok(ListStudents.render(StudentDB.getStudents()));
+  }
 
+  public static Result listTextbooks() {
+    return ok(ListTextbooks.render(TextbookDB.getTextbooks()));
   }
   
   /**
@@ -56,43 +60,43 @@ public class Application extends Controller {
     return ok(ManageTextbook.render(formData));
   }
   
-  public static Result getTextbook(String ISBN) {
-    TextbookDB.getTextbook(ISBN);
-    return ok(Page1.render("returns the textbook based on ISBN, temp"));
+  public static Result getTextbook(String title) {
+    TextbookDB.getTextbook(title);
+    return ok(Index.render("returns the textbook based on title, temp"));
   }
   
-  public static Result deleteTextbook(String ISBN) {
-    TextbookDB.deleteTextbook(ISBN);
-    return ok(Page1.render("returns to the index, temp"));
+  public static Result deleteTextbook(String title) {
+    TextbookDB.deleteTextbook(title);
+    return ok(ListTextbooks.render(TextbookDB.getTextbooks()));
   }
   
-  public static Result manageTextbook(String ISBN) {
-    TextbookFormData data = new TextbookFormData(TextbookDB.getTextbook(ISBN));
+  public static Result manageTextbook(String title) {
+    TextbookFormData data = new TextbookFormData(TextbookDB.getTextbook(title));
     Form<TextbookFormData> formData = Form.form(TextbookFormData.class).fill(data);
-    return ok(Page1.render("returns edit textbook page, temp"));
+    return ok(Index.render("returns edit textbook page, temp"));
   }
   
   public static Result postStudent() {
     Form<StudentFormData> formData = Form.form(StudentFormData.class).bindFromRequest();
     if (formData.hasErrors()) {
-      return badRequest(Page1.render("returns page with errors, temp"));
+      return badRequest(Index.render("returns page with errors, temp"));
     }
     else {
       StudentFormData data = formData.get();
       StudentDB.addStudent(data);
-      return ok(Page1.render("returns textbook page, temp"));
+      return ok(Index.render("returns textbook page, temp"));
     }
   }  
   
   public static Result postTextbook() {
     Form<TextbookFormData> formData = Form.form(TextbookFormData.class).bindFromRequest();
     if (formData.hasErrors()) {
-      return badRequest(Page1.render("returns page with errors, temp"));
+      return badRequest(Index.render("returns page with errors, temp"));
     }
     else {
       TextbookFormData data = formData.get();
       TextbookDB.addTextbook(data);
-      return ok(Page1.render("returns textbook page, temp"));
+      return ok(Index.render("returns textbook page, temp"));
     }
   }
 }

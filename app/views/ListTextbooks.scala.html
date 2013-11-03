@@ -1,0 +1,27 @@
+@(textbooks: List[Textbook]) @Main("Home") {
+<div class="container">
+	<h2>Current Textbooks</h2>
+	<table class="table table-striped table-bordered">
+		<thead>
+			<tr>
+				<th>Title</th>
+				<th>Author</th>
+				<th>ISBN</th>
+				<th>Image URL</th>
+                <th>Condition</th>
+			</tr>
+		</thead>
+		@for(textbook <- textbooks) {
+		<tr>
+			<td>@textbook.getTitle()</td>
+			<td>@textbook.getAuthor()</td>
+			<td>@textbook.getISBN()</td>
+			<td>@textbook.getImageURL()</td>
+            <td>@textbook.getCondition()</td>
+			<td><a href="@routes.Application.manageTextbook(textbook.getTitle())">Edit</a></td>
+            <td><a href="@routes.Application.deleteTextbook(textbook.getTitle())">Delete</a></td>
+		</tr>
+		}
+	</table>
+</div>
+}

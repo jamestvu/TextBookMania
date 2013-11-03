@@ -1,0 +1,25 @@
+@(students: List[Student]) @Main("Home") {
+<div class="container">
+	<h2>Current Students</h2>
+	<table class="table table-striped table-bordered">
+		<thead>
+			<tr>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Email</th>
+				<th>Image URL</th>
+			</tr>
+		</thead>
+		@for(student <- students) {
+		<tr>
+			<td>@student.getFirstName()</td>
+			<td>@student.getLastName()</td>
+			<td>@student.getEmail()</td>
+			<td>@student.getImageURL()</td>
+			<td><a href="@routes.Application.deleteStudent(student.getEmail())">Edit</a></td>
+            <td><a href="@routes.Application.deleteStudent(student.getEmail())">Delete</a></td>            
+		</tr>
+		}
+	</table>
+</div>
+}
