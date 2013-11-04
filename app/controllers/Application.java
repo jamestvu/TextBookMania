@@ -15,6 +15,7 @@ import views.html.ListTextbooks;
 import views.html.ManageStudent;
 import views.html.ManageTextbook;
 import views.html.ListBuyOffers;
+import views.html.Match;
 
 /**
  * Implements the controllers for this application.
@@ -30,7 +31,7 @@ public class Application extends Controller {
   }
     
   public static Result matchPage() {
-    return ok(Match.render("match page"));
+    return ok(Match.render(BuyOfferDB.getOffers()));
   }
 
   
