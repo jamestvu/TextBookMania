@@ -29,6 +29,10 @@ public class Application extends Controller {
     return ok(Index.render("Welcome to the home page."));
   }
     
+  public static Result matchPage() {
+    return ok(Match.render("match page"));
+  }
+
   
   /**
    * Returns the manage student page.

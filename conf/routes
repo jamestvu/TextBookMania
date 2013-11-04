@@ -4,6 +4,7 @@
  
 # Home page
 GET     /                           controllers.Application.index()
+GET     /match                      controllers.Application.matchPage()
 GET     /new                        controllers.Application.newStudent()
 GET     /newtext                    controllers.Application.newTextbook()
 GET     /students                   controllers.Application.listStudents()
