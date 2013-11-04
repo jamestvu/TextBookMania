@@ -7,6 +7,7 @@ import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Result;
 import views.formdata.BuyOfferFormData;
+import views.formdata.ConditionTypes;
 import views.formdata.StudentFormData;
 import views.formdata.TextbookFormData;
 import views.html.Index;
@@ -86,7 +87,7 @@ public class Application extends Controller {
   public static Result newTextbook() {
     TextbookFormData data = new TextbookFormData();
     Form<TextbookFormData> formData = Form.form(TextbookFormData.class).fill(data);
-    return ok(ManageTextbook.render(formData));
+    return ok(ManageTextbook.render(formData,ConditionTypes.getTypes()));
   }
   
   public static Result getTextbook(String title) {
@@ -108,7 +109,7 @@ public class Application extends Controller {
   public static Result manageTextbook(String title) {
     TextbookFormData data = new TextbookFormData(TextbookDB.getTextbook(title));
     Form<TextbookFormData> formData = Form.form(TextbookFormData.class).fill(data);
-    return ok(ManageTextbook.render(formData));
+    return ok(ManageTextbook.render(formData,ConditionTypes.getTypes()));
   }
   
   public static Result postStudent() {
@@ -126,7 +127,7 @@ public class Application extends Controller {
   public static Result postTextbook() {
     Form<TextbookFormData> formData = Form.form(TextbookFormData.class).bindFromRequest();
     if (formData.hasErrors()) {
-      return badRequest(ManageTextbook.render(formData));
+      return badRequest(ManageTextbook.render(formData,ConditionTypes.getTypes()));
     }
     else {
       TextbookFormData data = formData.get();
