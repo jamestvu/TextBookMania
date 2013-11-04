@@ -8,28 +8,36 @@ import models.Offer;
 import models.Student;
 import models.Textbook;
 
-public class OfferFormData {
+public class BuyOfferFormData {
 
   public Student student = null;
   public Textbook textbook = null;
   public int price = 0;
   public Date expiration = null;
-  /** the id.*/
+  /** The id. */
   public int id;
   
   /**
    * Default constructor
    */
-  public OfferFormData() {
+  public BuyOfferFormData() {
   }
   
-  public OfferFormData(Offer formData) {
+  public BuyOfferFormData(Offer formData) {
     this.student = formData.getStudent();
     this.textbook = formData.getTextbook();
     this.price = formData.getPrice();
     this.expiration = formData.getExpiration();
+    this.id = id;
   }
   
+  public BuyOfferFormData(Student student, Textbook textbook, int price, Date date, int id) {
+    this.student = student;
+    this.textbook = textbook;
+    this.price = price;
+    this.expiration = date;
+    this.id = id;
+  }
   /**
    * Checks that form fields are valid. Called by bindFormRequest().
    * @return null if valid, a list of ValidationError if problem is found.

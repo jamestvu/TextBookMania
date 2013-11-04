@@ -1,10 +1,12 @@
 package controllers;
 
+import models.BuyOfferDB;
 import models.StudentDB;
 import models.TextbookDB;
 import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Result;
+import views.formdata.BuyOfferFormData;
 import views.formdata.StudentFormData;
 import views.formdata.TextbookFormData;
 import views.html.Index;
@@ -12,7 +14,7 @@ import views.html.ListStudents;
 import views.html.ListTextbooks;
 import views.html.ManageStudent;
 import views.html.ManageTextbook;
-import views.html.Match;
+import views.html.ListBuyOffers;
 
 /**
  * Implements the controllers for this application.
@@ -27,9 +29,6 @@ public class Application extends Controller {
     return ok(Index.render("Welcome to the home page."));
   }
     
-  public static Result match() {
-    return ok(Match.render("match page"));
-  }
   
   /**
    * Returns the manage student page.
@@ -52,6 +51,27 @@ public class Application extends Controller {
 
   public static Result listTextbooks() {
     return ok(ListTextbooks.render(TextbookDB.getTextbooks()));
+  }
+  
+  public static Result listBuyOffers() {
+    return ok(ListBuyOffers.render(BuyOfferDB.getOffers()));
+  }
+  
+  public static Result getBuyOffer(int id) {
+    BuyOfferDB.getOffer(id);
+    return ok(Index.render("returns the textbook based on title, temp"));
+  }
+  
+  public static Result manageBuyOffer(int id) {
+    BuyOfferFormData data = new BuyOfferFormData(BuyOfferDB.getOffer(id));
+    Form<BuyOfferFormData> formData = Form.form(BuyOfferFormData.class).fill(data);
+    return ok(Index.render("returns the textbook based on title, temp"));
+    //return ok(ManageBuyOffer.render(formData, StudentDB.getStudents(), TextbookDB.getTextbooks()));
+  }
+  
+  public static Result deleteBuyOffer(int id) {
+    BuyOfferDB.deleteOffer(id);
+    return ok(ListBuyOffers.render(BuyOfferDB.getOffers()));
   }
   
   /**
@@ -107,6 +127,20 @@ public class Application extends Controller {
       TextbookFormData data = formData.get();
       TextbookDB.addTextbook(data);
       return ok(ListTextbooks.render(TextbookDB.getTextbooks()));
+    }
+  }
+  
+  public static Result postBuyOffer() {
+    Form<BuyOfferFormData> formData = Form.form(BuyOfferFormData.class).bindFromRequest();
+    if (formData.hasErrors()) {
+      return ok(Index.render("returns the textbook based on title, temp"));
+      //return badRequest(ManageBuyOffer.render(formData, StudentDB.getStudents(), TextbookDB.getTextbooks()));
+    }
+    else {
+      BuyOfferFormData data = formData.get();
+      BuyOfferDB.addOffer(data);
+      return ok(Index.render("returns the textbook based on title, temp"));
+      //return ok(ManageBuyOffer.render(formData, StudentDB.getStudents(), TextbookDB.getTextbooks()));
     }
   }
 }

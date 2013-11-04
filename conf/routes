@@ -13,10 +13,15 @@ GET     /textbooks                  controllers.Application.listTextbooks()
 GET     /text/:title                controllers.Application.getTextbook(title)
 GET     /text/:title/delete         controllers.Application.deleteTextbook(title)
 GET     /text/:title/edit           controllers.Application.manageTextbook(title)
-GET     /match                      controllers.Application.match()
+
+GET     /buyoffers                  controllers.Application.listBuyOffers()
+GET     /buyoffer/:id               controllers.Application.getBuyOffer(id: Integer)
+GET     /buyoffer/:id/delete        controllers.Application.deleteBuyOffer(id: Integer)
+GET     /buyoffer/:id/edit          controllers.Application.manageBuyOffer(id: Integer)
+
 POST    /posttext                   controllers.Application.postTextbook()
 POST    /poststudent                controllers.Application.postStudent()
- 
+POST    /postbuyoffer                controllers.Application.postBuyOffer()
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
 

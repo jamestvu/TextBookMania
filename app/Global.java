@@ -1,9 +1,13 @@
 
 import play.Application;
 import play.GlobalSettings;
+import views.formdata.BuyOfferFormData;
 import views.formdata.StudentFormData;
 import views.formdata.TextbookFormData;
+import models.BuyOfferDB;
+import models.Student;
 import models.StudentDB;
+import models.Textbook;
 import models.TextbookDB;
 
 
@@ -19,13 +23,18 @@ public class Global extends GlobalSettings {
    * @param app The application.
    */
   public void onStart(Application app) {
+    Student james = new Student("James", "Vu", "jamesvu42@gmail.com", 
+        "http://jamestvu.files.wordpress.com/2013/08/dsc01094.jpg?w=150");
     
+    Textbook temp = new Textbook("Java Concepts: Compatible with Java 5, 6 and 7",
+        "Cay S. Horstmann", "0470509473", "http://images.amazon.com/images/P/0470509473", "Excellent");
+    
+    BuyOfferDB.addOffer(new BuyOfferFormData(james, temp, 0, null, 0));
     StudentDB.addStudent(new StudentFormData("Jonathan", "Ortal", "jortal@hawaii.edu",
         "http://jortal.files.wordpress.com/2013/08/profilepic.jpg?w=133&h=105"));
     StudentDB.addStudent(new StudentFormData("Marc", "Sanpei", "sanpeihawaii2@gmail.com", 
         "http://sanpeimarc.files.wordpress.com/2013/08/215078_10150723796135713_735286_n.jpg?w=960"));
-    StudentDB.addStudent(new StudentFormData("James", "Vu", "jamesvu42@gmail.com",
-        "http://jamestvu.files.wordpress.com/2013/08/dsc01094.jpg?w=150"));
+    StudentDB.addStudent(new StudentFormData(james));
     
     TextbookDB.addTextbook(new TextbookFormData("Java Concepts: Compatible with Java 5, 6 and 7",
         "Cay S. Horstmann", "0470509473", "http://images.amazon.com/images/P/0470509473", "Excellent"));

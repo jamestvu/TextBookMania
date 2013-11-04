@@ -4,14 +4,14 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import views.formdata.SellOffer;
+import views.formdata.SellOfferFormData;
 
 /**
  * Provides a simple in memory repository for offer data.
  * @author Owner
  *
  */
-public class SellOfferDb {
+public class SellOfferDB {
   
   private static Map<Textbook, Offer> offers = new HashMap<Textbook, Offer>();
 
@@ -20,10 +20,10 @@ public class SellOfferDb {
    * @param formData the offer form data to add.
    * @return offer the newly created offer to return.
    */
-  public static Offer addOffer(SellOffer formData) {
+  public static Offer addOffer(SellOfferFormData formData) {
     Textbook book = formData.textbook;
     
-    Offer offer = new Offer(formData.student, formData.textbook, formData.price, formData.expiration);
+    Offer offer = new Offer(formData.student, formData.textbook, formData.price, formData.expiration, formData.id);
     offers.put(book, offer);
     
     return offer;

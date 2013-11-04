@@ -8,22 +8,21 @@ import models.Offer;
 import models.Student;
 import models.Textbook;
 
-public class OfferFormData {
+public class SellOfferFormData {
 
   public Student student = null;
   public Textbook textbook = null;
   public int price = 0;
   public Date expiration = null;
-  /** the id.*/
   public int id;
   
   /**
    * Default constructor
    */
-  public OfferFormData() {
+  public SellOfferFormData() {
   }
   
-  public OfferFormData(Offer formData) {
+  public SellOfferFormData(Offer formData) {
     this.student = formData.getStudent();
     this.textbook = formData.getTextbook();
     this.price = formData.getPrice();
@@ -49,7 +48,6 @@ public class OfferFormData {
       errors.add(new ValidationError("price", "Price is required."));
     } 
     
-
     if (expiration == null) {
       errors.add(new ValidationError("condition", "Expiration is required."));
     }

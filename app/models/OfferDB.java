@@ -18,7 +18,7 @@ private static Map<Student, Offer> sellOffers = new HashMap<>();
    */
   public static void addBuyOffer(OfferFormData formData) {
     Student name = formData.student;
-    Offer offer = new Offer(formData.student, formData.textbook, formData.price, formData.expiration);
+    Offer offer = new Offer(formData.student, formData.textbook, formData.price, formData.expiration, formData.id);
     buyOffers.put(name, offer);
   }
   

@@ -6,19 +6,21 @@ import java.util.Date;
 public class Offer {
 
   private Student student;
-  private Textbook textbook ;
+  private Textbook textbook;
   private int price;
   private Date expiration;
+  private int id;
   
   public Offer() {
     
   }
   
-  public Offer(Student student, Textbook textbook, int price, Date expiration) {
+  public Offer(Student student, Textbook textbook, int price, Date expiration, int id) {
     this.student = student;
     this.textbook = textbook;
     this.price = price;
     this.expiration = expiration;
+    this.id = id;
   }
 
   /**
@@ -75,5 +77,19 @@ public class Offer {
    */
   public void setExpiration(Date expiration) {
     this.expiration = expiration;
+  }
+
+  /**
+   * @return the id
+   */
+  public int getId() {
+    return id;
+  }
+
+  /**
+   * @param id the id to set
+   */
+  public void setId(int id) {
+    this.id = id;
   }
 }
