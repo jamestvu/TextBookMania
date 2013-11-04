@@ -1,0 +1,25 @@
+@(offers: List[Offer]) @Main("Home") {
+<div class="container">
+  <h2>Current offers</h2>
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>Student Buying</th>
+        <th>Textbook</th>
+        <th>Price</th>
+        <th>Expiration</th>
+      </tr>
+    </thead>
+    @for(offer <- offers) {
+    <tr> 
+      <td>@offer.getStudent().getFirstName() @offer.getStudent().getLastName() </td>
+      <td>@offer.getTextbook().getTitle()</td>
+      <td>@offer.getPrice()</td>
+      <td>@offer.getExpiration()</td>
+      <td><a href="@routes.Application.deleteBuyOffer(offer.getId())">Edit</a></td>
+      <td><a href="@routes.Application.deleteBuyOffer(offer.getId())">Delete</a></td>            
+    </tr>
+    }
+  </table>
+</div>
+}
