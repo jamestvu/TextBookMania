@@ -5,6 +5,10 @@ Overview
 
 A [Play application](http://www.playframework.com/) that provides an interface for students to buy and sell textbooks.
 
+Students can go to the site and create a profile to identify themselves. Then they can create BuyOffers and SellOffers
+for a given book. After that, they can find their "matches". The match report will list all BuyOffers for the specified
+student that have SellOffers for the same book.
+
 Installation
 --------
 
@@ -14,7 +18,12 @@ the run command to see the application at http://localhost:9000
 Usage
 --------
 
-Use the navbar to buy and sell text books or view student information.
+The database is globally initialized with 18 books, 3 students, 5 buy offers and 5 sell offers. You can see the lists
+by clicking on the respective links via the nav bar.
+
+There are also links to create a new student profile, to add a new textbook to the database, or to find buy/sell matches.
+
+At this time any user using this application is allowed to read, create, update, or delete any of the records on the site.
 
 Credits
 --------
