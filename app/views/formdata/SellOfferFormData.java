@@ -27,6 +27,22 @@ public class SellOfferFormData {
     this.textbook = formData.getTextbook();
     this.price = formData.getPrice();
     this.expiration = formData.getExpiration();
+    this.id = formData.getId();
+  }
+  
+  public SellOfferFormData(Student student, Textbook textbook, int price, Date date, int id) {
+    this.student = student;
+    this.textbook = textbook;
+    this.price = price;
+    this.expiration = date;
+    this.id = id;
+  }
+  
+  public SellOfferFormData(Student student, Textbook textbook, int price, Date date) {
+    this.student = student;
+    this.textbook = textbook;
+    this.price = price;
+    this.expiration = date;
   }
   
   /**
