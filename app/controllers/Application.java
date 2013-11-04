@@ -1,5 +1,6 @@
 package controllers;
 
+import java.util.Map;
 import models.BuyOfferDB;
 import models.StudentDB;
 import models.TextbookDB;
@@ -7,6 +8,7 @@ import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Result;
 import views.formdata.BuyOfferFormData;
+import views.formdata.MatchTypes;
 import views.formdata.StudentFormData;
 import views.formdata.TextbookFormData;
 import views.html.Index;
@@ -31,7 +33,10 @@ public class Application extends Controller {
   }
     
   public static Result matchPage() {
-    return ok(Match.render(BuyOfferDB.getOffers()));
+    StudentFormData data = new StudentFormData();
+    Form<StudentFormData> formData = Form.form(StudentFormData.class).fill(data);    
+    Map<String, Boolean> matchTypes = MatchTypes.getMatchNames();
+    return ok(Match.render(formData, matchTypes));
   }
 
   

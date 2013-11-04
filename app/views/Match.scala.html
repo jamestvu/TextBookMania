@@ -1,16 +1,16 @@
-@(offers: List[Offer]) @Main("Home") {
+@(studentForm: Form[views.formdata.StudentFormData], matches: Map[String, Boolean]) @Main("Home") {
 <div class="container">
-  <h2>Test match page</h2>
-  <table class="table table-striped table-bordered">
-    <thead>
-      <tr>
-        <th>Student Buying</th>
-        <th>Textbook</th>
-        <th>Price</th>
-        <th>Expiration</th>
-      </tr>
-    </thead>
-    
-  </table>
+
+  @bootstrap3.select(studentForm("name"), 
+                     label = "Student Name: ", 
+                     optionMap = matches,
+                     isMultiple = false, help ="")
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-primary">Find Matches</button>
+        </div>
+    </div>
+
 </div>
 }
