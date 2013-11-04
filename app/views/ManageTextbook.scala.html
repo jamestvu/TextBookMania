@@ -1,4 +1,4 @@
-@(textForm: Form[views.formdata.TextbookFormData])
+@(textForm: Form[views.formdata.TextbookFormData], typeMap: Map[String, Boolean])
 
 @import helper._
 @import bootstrap3._
@@ -28,9 +28,10 @@
         placeholder = "http://example.com/img.png",
         help = "The url of the textbook image.")     
 
-  @text(textForm("condition"),
+  @bootstrap3.select(textForm("conditionType"),
         label = "Condition",
-        placeholder = "Should be a select menu here",
+        optionMap = typeMap,
+        isMultiple = false,
         help = "The condition of the textbook.")
                            
     <div class="form-group">
