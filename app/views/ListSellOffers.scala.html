@@ -8,20 +8,20 @@
   <table class="table table-striped table-bordered">
     <thead>
       <tr>
-        <th>Student Buying</th>
+        <th>Student selling</th>
         <th>Textbook</th>
         <th>Price</th>
         <th>Expiration</th>
       </tr>
     </thead>
-    @for(offer <- BuyOfferDB.getOffers()) {
+    @for(offer <- SellOfferDB.getOffers()) {
     <tr> 
       <td>@offer.getStudent() </td>
       <td>@offer.getTextbook()</td>
       <td>@offer.getPrice()</td>
       <td>@offer.getExpiration()</td>
-      <td><a href="@routes.Application.deleteBuyOffer(offer.getId())">Edit</a></td>
-      <td><a href="@routes.Application.deleteBuyOffer(offer.getId())">Delete</a></td>            
+      <td><a href="@routes.Application.deleteSellOffer(offer.getId())">Edit</a></td>
+      <td><a href="@routes.Application.deleteSellOffer(offer.getId())">Delete</a></td>            
     </tr>
     }
   </table>

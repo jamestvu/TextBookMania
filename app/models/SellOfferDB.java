@@ -13,7 +13,8 @@ import views.formdata.SellOfferFormData;
  */
 public class SellOfferDB {
   
-  private static Map<Textbook, Offer> offers = new HashMap<Textbook, Offer>();
+  private static Map<Integer, Offer> offers = new HashMap<Integer, Offer>();
+  private static int idCount = 5;
 
   /**
    * Updates the repo with a new offer or edits an existing offer.
@@ -21,20 +22,19 @@ public class SellOfferDB {
    * @return offer the newly created offer to return.
    */
   public static Offer addOffer(SellOfferFormData formData) {
-    Textbook book = formData.textbook;
     
-    Offer offer = new Offer(formData.student, formData.textbook, formData.price, formData.expiration, formData.id);
-    offers.put(book, offer);
+    Offer offer = new Offer(formData.student, formData.textbook, formData.price, formData.expiration, idCount);
+    offers.put(idCount++, offer);
     
     return offer;
   }
   
   /**
    * Deletes the offer from the repository.
-   * @param book the book.
+   * @param id the id..
    */
-  public static void deleteOffer(String book) {
-    offers.remove(book);
+  public static void deleteOffer(int id) {
+    offers.remove(id);
   }
   
   
@@ -48,20 +48,20 @@ public class SellOfferDB {
   
   /**
    * Returns if the book is in use or not.
-   * @param book The book to check.
+   * @param id The book to check.
    * @return True if a offer is already using the book.
    */
-  public static boolean bookExists(String book) {
-    return offers.containsKey(book);
+  public static boolean bookExists(int id) {
+    return offers.containsKey(id);
   }
   
   /**
    * Returns a offer object.
-   * @param book the book.
+   * @param id the book.
    * @return offer based on the book.
    */
-  public static Offer getOffer(Textbook book) {
-    Offer offer = offers.get(book);
+  public static Offer getOffer(int id) {
+    Offer offer = offers.get(id);
     if (offer == null) {
       throw new RuntimeException("Passed an invalid offer: " + offer); 
     }

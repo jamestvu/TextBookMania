@@ -1,5 +1,7 @@
 package views.formdata;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -10,10 +12,10 @@ import models.Textbook;
 
 public class SellOfferFormData {
 
-  public Student student = null;
-  public Textbook textbook = null;
-  public int price = 0;
-  public Date expiration = null;
+  public String student = null;
+  public String textbook = null;
+  public String price = null;
+  public String expiration = null;
   public int id;
   
   /**
@@ -30,7 +32,7 @@ public class SellOfferFormData {
     this.id = formData.getId();
   }
   
-  public SellOfferFormData(Student student, Textbook textbook, int price, Date date, int id) {
+  public SellOfferFormData(String student, String textbook, String price, String date, int id) {
     this.student = student;
     this.textbook = textbook;
     this.price = price;
@@ -38,7 +40,7 @@ public class SellOfferFormData {
     this.id = id;
   }
   
-  public SellOfferFormData(Student student, Textbook textbook, int price, Date date) {
+  public SellOfferFormData(String student, String textbook, String price, String date) {
     this.student = student;
     this.textbook = textbook;
     this.price = price;
@@ -60,14 +62,26 @@ public class SellOfferFormData {
       errors.add(new ValidationError("textbook", "Textbook is required."));
     }
 
-    if (price == 0) {
+    if (price.isEmpty()) {
       errors.add(new ValidationError("price", "Price is required."));
     } 
     
-    if (expiration == null) {
-      errors.add(new ValidationError("condition", "Expiration is required."));
+    if (!price.matches("^[0-9]*$")) {
+      errors.add(new ValidationError("price", "Price must be numeric."));
     }
     
+    if (expiration.isEmpty()) {
+      errors.add(new ValidationError("expiration", "Expiration is required."));
+    }
+    else {
+      try {
+        Date date = new SimpleDateFormat("MM/dd/yy").parse(expiration);
+      }
+      catch (ParseException e) {
+        errors.add(new ValidationError("expiration", "Invalid Date Format."));
+      }
+    }
+
     return errors.isEmpty() ? null : errors;
   }
 }

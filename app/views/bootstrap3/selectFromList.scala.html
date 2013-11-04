@@ -8,9 +8,9 @@
         id="@field.id"
         name="@if(isMultiple) {@(field.name + "[]")} else {@field.name}"
         @if(isMultiple) {multiple="multiple"}>
-        @if(!isMultiple) {<option class="blank" value="">Please select a value</option>}
+        @if(!isMultiple) {<option class="blank" value="" selected>Please select a value</option>}
         @for(student <- students2) {
-          <option id="@student.getLastName()" value="@student.getFirstName() @student.getLastName()" selected>@student.getFirstName() @student.getLastName()</option>
+          <option id="@student" value="@student.getFirstName()  @student.getLastName()">@student.getFirstName() @student.getLastName()</option>
         }        
       </select>
       <span class="help-block">@help</span>

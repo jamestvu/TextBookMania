@@ -29,7 +29,8 @@ public class Global extends GlobalSettings {
     Textbook temp = new Textbook("Java Concepts: Compatible with Java 5, 6 and 7",
         "Cay S. Horstmann", "0470509473", "http://images.amazon.com/images/P/0470509473", "Excellent");
     
-    BuyOfferDB.addOffer(new BuyOfferFormData(james, temp, 0, null, 0));
+    BuyOfferDB.addOffer(new BuyOfferFormData("James Vu", "Java Concepts: Compatible with Java 5, 6 and 7", "", "", 0));
+    
     StudentDB.addStudent(new StudentFormData("Jonathan", "Ortal", "jortal@hawaii.edu",
         "http://jortal.files.wordpress.com/2013/08/profilepic.jpg?w=133&h=105"));
     StudentDB.addStudent(new StudentFormData("Marc", "Sanpei", "sanpeihawaii2@gmail.com", 

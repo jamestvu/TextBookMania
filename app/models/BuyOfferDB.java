@@ -14,6 +14,7 @@ import views.formdata.BuyOfferFormData;
 public class BuyOfferDB {
   
   private static Map<Integer, Offer> offers = new HashMap<Integer, Offer>();
+  private static int idCount = 0;
 
   /**
    * Updates the repo with a new offer or edits an existing offer.
@@ -21,8 +22,8 @@ public class BuyOfferDB {
    * @return offer the newly created offer to return.
    */
   public static Offer addOffer(BuyOfferFormData formData) {
-    Offer offer = new Offer(formData.student, formData.textbook, formData.price, formData.expiration, formData.id);
-    offers.put(formData.id, offer);
+    Offer offer = new Offer(formData.student, formData.textbook, formData.price, formData.expiration, idCount);
+    offers.put(idCount++, offer);
     
     return offer;
   }

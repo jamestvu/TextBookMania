@@ -1,32 +1,32 @@
-@(buyOfferForm: Form[views.formdata.BuyOfferFormData])
+@(SellOfferForm: Form[views.formdata.SellOfferFormData])
 
 @import helper._
 @import bootstrap3._
 @import models._
 
-@Main("BuyOffer Management") {
+@Main("Sell Offer Management") {
 
 <div class="container" style="margin-top:20px">
-  @form(routes.Application.postBuyOffer(), 'class -> "form-horizontal") {
+  @form(routes.Application.postSellOffer(), 'class -> "form-horizontal") {
 
-  @bootstrap3.selectFromList(buyOfferForm("student"),
+  @bootstrap3.selectFromList(SellOfferForm("student"),
     label = "Student",
     students2 = models.StudentDB.getStudents(),
     isMultiple = false,
     help = "Student Name")
 
-  @bootstrap3.selectFromList2(buyOfferForm("textbook"),
+  @bootstrap3.selectFromList2(SellOfferForm("textbook"),
     label = "Textbook",
     textbooks2 = models.TextbookDB.getTextbooks(),
     isMultiple = false,
     help = "Textbook")  
 
-  @text(buyOfferForm("price"),
+  @text(SellOfferForm("price"),
         label = "Price",
         placeholder = "$X",
         help = "Textbook price.")        
 
-  @text(buyOfferForm("expiration"),
+  @text(SellOfferForm("expiration"),
         label = "Expiration",
         placeholder = "MM/dd/yy",
         help = "The expiration date.")
