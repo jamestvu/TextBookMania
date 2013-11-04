@@ -28,7 +28,7 @@ public class BuyOfferFormData {
     this.textbook = formData.getTextbook();
     this.price = formData.getPrice();
     this.expiration = formData.getExpiration();
-    this.id = id;
+    this.id = formData.getId();
   }
   
   public BuyOfferFormData(Student student, Textbook textbook, int price, Date date, int id) {
@@ -38,6 +38,14 @@ public class BuyOfferFormData {
     this.expiration = date;
     this.id = id;
   }
+  
+  public BuyOfferFormData(Student student, Textbook textbook, int price, Date date) {
+    this.student = student;
+    this.textbook = textbook;
+    this.price = price;
+    this.expiration = date;
+  }
+  
   /**
    * Checks that form fields are valid. Called by bindFormRequest().
    * @return null if valid, a list of ValidationError if problem is found.
@@ -59,7 +67,7 @@ public class BuyOfferFormData {
     
 
     if (expiration == null) {
-      errors.add(new ValidationError("condition", "Expiration is required."));
+      errors.add(new ValidationError("expiration", "Expiration is required."));
     }
     
     return errors.isEmpty() ? null : errors;
