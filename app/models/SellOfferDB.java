@@ -14,7 +14,7 @@ import views.formdata.SellOfferFormData;
 public class SellOfferDB {
   
   private static Map<Integer, Offer> offers = new HashMap<Integer, Offer>();
-  private static int idCount = 5;
+  private static int idCount = 1;
 
   /**
    * Updates the repo with a new offer or edits an existing offer.

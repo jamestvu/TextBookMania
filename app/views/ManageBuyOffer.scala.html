@@ -8,7 +8,9 @@
 
 <div class="container" style="margin-top:20px">
   @form(routes.Application.postBuyOffer(), 'class -> "form-horizontal") {
-
+  
+  @hidden(buyOfferForm("id"))
+  
   @bootstrap3.selectFromList(buyOfferForm("student"),
     label = "Student",
     students2 = models.StudentDB.getStudents(),
