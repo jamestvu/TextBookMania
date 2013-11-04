@@ -81,8 +81,7 @@ public class Application extends Controller {
   public static Result manageBuyOffer(int id) {
     BuyOfferFormData data = new BuyOfferFormData(BuyOfferDB.getOffer(id));
     Form<BuyOfferFormData> formData = Form.form(BuyOfferFormData.class).fill(data);
-    return ok(Index.render("returns the textbook based on title, temp"));
-    //return ok(ManageBuyOffer.render(formData, StudentDB.getStudents(), TextbookDB.getTextbooks()));
+    return ok(ManageBuyOffer.render(formData));
   }
   
   public static Result deleteBuyOffer(int id) {
@@ -175,6 +174,7 @@ public class Application extends Controller {
     }
     else {
       TextbookFormData data = formData.get();
+
       TextbookDB.addTextbook(data);
       return ok(ListTextbooks.render(TextbookDB.getTextbooks()));
     }
@@ -187,6 +187,7 @@ public class Application extends Controller {
     }
     else {
       BuyOfferFormData data = formData.get();
+      BuyOfferDB.deleteOffer(data.id);
       BuyOfferDB.addOffer(data);
       return ok(ManageBuyOffer.render(formData));
     }
@@ -199,6 +200,7 @@ public class Application extends Controller {
     }
     else {
       SellOfferFormData data = formData.get();
+      SellOfferDB.deleteOffer(data.id);
       SellOfferDB.addOffer(data);
       return ok(ManageSellOffer.render(formData));
     }

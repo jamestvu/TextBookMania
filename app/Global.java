@@ -2,9 +2,11 @@
 import play.Application;
 import play.GlobalSettings;
 import views.formdata.BuyOfferFormData;
+import views.formdata.SellOfferFormData;
 import views.formdata.StudentFormData;
 import views.formdata.TextbookFormData;
 import models.BuyOfferDB;
+import models.SellOfferDB;
 import models.Student;
 import models.StudentDB;
 import models.Textbook;
@@ -29,7 +31,30 @@ public class Global extends GlobalSettings {
     Textbook temp = new Textbook("Java Concepts: Compatible with Java 5, 6 and 7",
         "Cay S. Horstmann", "0470509473", "http://images.amazon.com/images/P/0470509473", "Excellent");
     
-    BuyOfferDB.addOffer(new BuyOfferFormData("James Vu", "Java Concepts: Compatible with Java 5, 6 and 7", "", "", 0));
+    BuyOfferDB.addOffer(new BuyOfferFormData("James Vu", "Java Concepts: Compatible with Java 5, 6 and 7", "10",
+        "10/10/14", 0));
+    BuyOfferDB.addOffer(new BuyOfferFormData("James Vu", "Discrete Mathematics and Its Applications", "20",
+        "10/10/14", 1));
+    BuyOfferDB.addOffer(new BuyOfferFormData("James Vu", "Java Concepts: Compatible with Java 5, 6 and 7", "10",
+        "10/10/14", 2));
+    BuyOfferDB.addOffer(new BuyOfferFormData("James Vu", "Java Concepts: Compatible with Java 5, 6 and 7", "10",
+        "10/10/14", 3));
+    BuyOfferDB.addOffer(new BuyOfferFormData("James Vu", "Java Concepts: Compatible with Java 5, 6 and 7", "10",
+        "10/10/14", 4));
+    
+    SellOfferDB.addOffer(new SellOfferFormData("James Vu", "Java Concepts: Compatible with Java 5, 6 and 7", "10", 
+        "11/11/14", 0));
+    SellOfferDB.addOffer(new SellOfferFormData("James Vu", "Java Concepts: Compatible with Java 5, 6 and 7", "10", 
+        "11/11/14", 1));
+    
+    SellOfferDB.addOffer(new SellOfferFormData("James Vu", "Java Concepts: Compatible with Java 5, 6 and 7", "10", 
+        "11/11/14", 2));
+    
+    SellOfferDB.addOffer(new SellOfferFormData("Marc Sanpei", "Java Concepts: Compatible with Java 5, 6 and 7", "10", 
+        "11/11/14", 3));
+    
+    SellOfferDB.addOffer(new SellOfferFormData("Jonathan Ortal", "Java Concepts: Compatible with Java 5, 6 and 7", "10"
+        , "11/11/14", 4));
     
     StudentDB.addStudent(new StudentFormData("Jonathan", "Ortal", "jortal@hawaii.edu",
         "http://jortal.files.wordpress.com/2013/08/profilepic.jpg?w=133&h=105"));
