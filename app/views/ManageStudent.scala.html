@@ -1,4 +1,4 @@
-@(studentForm: Form[views.formdata.StudentFormData])
+@(studentForm: Form[views.formdata.StudentFormData], disable2: Boolean)
 
 @import helper._
 @import bootstrap3._
@@ -18,11 +18,16 @@
         placeholder = "Last name",
         help = "Your last name.")
 
-  @text(studentForm("email"),
+  @slug(studentForm("email"),
         label = "Email",
         placeholder = "Email address",
-        help = "Your email address.")        
-
+        help = "Your email address.",
+        disable = disable2)        
+  
+  @hidden(studentForm("email"))
+  
+  @hidden(studentForm("newlyCreated"))
+  
   @text(studentForm("imageURL"),
         label = "Image URL",
         placeholder = "http://example.com/img.png",

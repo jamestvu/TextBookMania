@@ -11,6 +11,7 @@ public class Student {
   private String lastName;
   private String email;
   private String imageURL;
+  private boolean newlyCreated = true;
   
   /** Default constructor. **/
   public Student() {

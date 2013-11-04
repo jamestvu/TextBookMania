@@ -53,7 +53,7 @@ public class Application extends Controller {
   public static Result newStudent() {
     StudentFormData data = new StudentFormData();
     Form<StudentFormData> formData = Form.form(StudentFormData.class).fill(data);
-    return ok(ManageStudent.render(formData));
+    return ok(ManageStudent.render(formData, false));
   }
   
   public static Result listStudents() {
@@ -145,8 +145,9 @@ public class Application extends Controller {
   
   public static Result manageStudent(String email) {
     StudentFormData data = new StudentFormData(StudentDB.getStudent(email));
+    data.newlyCreated = false;
     Form<StudentFormData> formData = Form.form(StudentFormData.class).fill(data);
-    return ok(ManageStudent.render(formData));
+    return ok(ManageStudent.render(formData, true));
   }
   
   public static Result manageTextbook(String title) {
@@ -157,8 +158,11 @@ public class Application extends Controller {
   
   public static Result postStudent() {
     Form<StudentFormData> formData = Form.form(StudentFormData.class).bindFromRequest();
-    if (formData.hasErrors()) {
-      return badRequest(ManageStudent.render(formData));
+    if (formData.hasErrors() && formData.errors().containsKey("email")) {
+      return badRequest(ManageStudent.render(formData, false));
+    }
+    else if (formData.hasErrors()) {
+      return badRequest(ManageStudent.render(formData, true));
     }
     else {
       StudentFormData data = formData.get();
