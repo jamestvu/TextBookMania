@@ -14,15 +14,12 @@ GET     /textbooks                  controllers.Application.listTextbooks()
 GET     /text/:title                controllers.Application.getTextbook(title)
 GET     /text/:title/delete         controllers.Application.deleteTextbook(title)
 GET     /text/:title/edit           controllers.Application.manageTextbook(title)
-<<<<<<< HEAD
 
 GET     /buyoffers                  controllers.Application.listBuyOffers()
 GET     /buyoffer/:id               controllers.Application.getBuyOffer(id: Integer)
 GET     /buyoffer/:id/delete        controllers.Application.deleteBuyOffer(id: Integer)
 GET     /buyoffer/:id/edit          controllers.Application.manageBuyOffer(id: Integer)
 
-=======
->>>>>>> 61e82e656ec2703bddb5935a29571d3b1303b0c3
 POST    /posttext                   controllers.Application.postTextbook()
 POST    /poststudent                controllers.Application.postStudent()
 POST    /postbuyoffer                controllers.Application.postBuyOffer()
